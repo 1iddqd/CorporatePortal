@@ -6,6 +6,7 @@ namespace CorporatePortal.Controllers
 {
     public class HomeController : Controller
     {
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -14,6 +15,21 @@ namespace CorporatePortal.Controllers
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult ProjectAccounting()
+        {
+            return View();
+        }
+
+        public IActionResult PostingAccounting()
+        {
+            return View();
+        }
+
+        public IActionResult TaskAccounting()
         {
             return View();
         }
@@ -28,5 +44,6 @@ namespace CorporatePortal.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }
