@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>NORBIT тайм-менеджмент | Главная</title>
+	<title>NORBIT тайм-менеджмент | Проводки</title>
 	<link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -11,33 +11,21 @@
 		<header class="header">
 			<div class="logo">
 				<img src="/photos/logon.png" alt="NORBIT" />
+				<ul class="nav-links">
+					<li><a href="/Home/Index">Главная</a></li>
+					<li><a href="/Home/ProjectAccounting">Проекты</a></li>
+					<li><a href="/Home/TaskAccounting">Задачи</a></li>
+					<li><a href="/Home/PostingAccounting">Проводки</a></li>
+				</ul>
 			</div>
-			<h1>NORBIT тайм-менеджмент</h1>
+			
 		</header>
 
 		<main class="main">
-			<nav class="nav">
-
-			</nav>
-			<div class="content">
-				<a asp-area="" asp-controller="Home" asp-action="ProjectAccounting" class="card">
-					<div class="icon">
-						<img src="/photos/Image.png" alt="Учет проектов" />
-					</div>
-					<span>Учет проектов</span>
-				</a>
-				<a <a asp-area="" asp-controller="Home" asp-action="TaskAccounting" class="card">
-					<div class="icon">
-						<img src="/photos/Image-1.png" alt="Учет задач" />
-					</div>
-					<span>Учет задач</span>
-				</a>
-				<a <a asp-area="" asp-controller="Home" asp-action="PostingAccounting" class="card">
-					<div class="icon">
-						<img src="/photos/Image-2.png" alt="Учет проводок" />
-					</div>
-					<span>Учет проводок</span>
-				</a>
+			<div class="button-container">
+				<button class="btn add-btn">Добавление</button>
+				<button class="btn edit-btn">Редактирование</button>
+				<button class="btn delete-btn">Удаление</button>
 			</div>
 		</main>
 
