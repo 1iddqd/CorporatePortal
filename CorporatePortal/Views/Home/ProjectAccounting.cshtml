@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model List<Project>
+
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8" />
@@ -22,6 +24,23 @@
 		</header>
 
 		<main class="main">
+			<table class="table">
+				<tr>
+					<th>Номер проекта</th>
+					<th>Название</th>
+					<th>Код</th>
+					<th>Активна?</th>
+				</tr>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>@item.Id</td>
+						<td>@item.Name</td>
+						<td>@item.Code</td>
+						<td>@item.IsActive</td>
+					</tr>
+				}
+			</table>
 			<div class="button-container">
 				<button class="btn add-btn">Добавление</button>
 				<button class="btn edit-btn">Редактирование</button>

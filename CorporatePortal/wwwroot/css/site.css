@@ -42,6 +42,14 @@ body {
     border-radius: 8px;
 }
 
+/* Изменить для врот-ендера */
+.table {
+    color: white;
+    background-color: aquamarine;
+    border-radius: 5px;
+    padding: 10px;
+}
+
 .nav {
     text-align: left;
     margin-bottom: 20px;
