@@ -2,16 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #00bfa5;
-    color: #000;
+    color: white;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    background-color: #00bfa5;
     padding: 10px;
 }
 
@@ -19,6 +18,7 @@ body {
     width: 100%;
     max-width: 800px;
     text-align: center;
+    color: white;
 }
 
 .header {
@@ -44,7 +44,7 @@ body {
 
 /* Изменить для врот-ендера */
 .table {
-    color: white;
+    color: black;
     background-color: aquamarine;
     border-radius: 5px;
     padding: 10px;
@@ -63,6 +63,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    color: white;
 }
 
 .card {
@@ -72,11 +73,12 @@ body {
     padding: 10px;
     border-radius: 8px;
     text-decoration: none;
-    color: #00bfa5;
+    color: white;
 }
 
     .card:hover {
         background-color: #333;
+        color: white;
     }
 
 .icon img {
@@ -181,13 +183,12 @@ header {
     display: inline;
 }
 
-.nav-links a {
-
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    transition: color 0.3s;
-}
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        transition: color 0.3s;
+    }
 
     .nav-links a:hover {
         color: #000; /* Tomato color for hover effect */
@@ -201,6 +202,8 @@ main {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+    margin-left: 150px;
+    margin-top: 20px
 
 }
 
@@ -215,7 +218,7 @@ main {
 .add-btn {
     border-radius: 8px;
     background-color: #00bfa5; /* Зеленый */
-    color: white;
+    color: black;
 }
 
     .add-btn:hover {
@@ -225,7 +228,7 @@ main {
 .edit-btn {
     border-radius: 8px;
     background-color: #00bfa5; /* Синий */
-    color: white;
+    color: black;
 }
 
     .edit-btn:hover {
@@ -235,9 +238,41 @@ main {
 .delete-btn {
     border-radius: 8px;
     background-color: #00bfa5; /* Красный */
-    color: white;
+    color: black;
 }
 
     .delete-btn:hover {
         background-color: #45a049; /* Зеленый */
     }
+
+
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size: 18px;
+    min-width: 400px;
+ 
+    background-color: #00bfa5;
+}
+
+thead tr {
+    background-color: #00bfa5;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+th, td {
+    padding: 12px 15px;
+    color: white;
+    background-color: #00bfa5;
+}
+
+tbody tr {
+    border-bottom: 1px solid #00bfa5;
+}
+
+
+
