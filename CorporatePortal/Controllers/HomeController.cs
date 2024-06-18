@@ -2,6 +2,7 @@ using CorporatePortal.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Net.Http;
 
 namespace CorporatePortal.Controllers
 {
@@ -9,14 +10,12 @@ namespace CorporatePortal.Controllers
     {
 
         private readonly ILogger<HomeController> _logger;
-        private HttpClient _httpClient = new HttpClient()
-        {
-			BaseAddress = new Uri("http://localhost:5125/api/")
-	    };
+        private readonly HttpClient _httpClient;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory)
         {
             _logger = logger;
+            _httpClient = httpClientFactory.CreateClient("MyClient");
         }
 
         public IActionResult Index()
@@ -30,9 +29,11 @@ namespace CorporatePortal.Controllers
             if(response.IsSuccessStatusCode)
             {
                 string data = await response.Content.ReadAsStringAsync();
-                List<Project> projects = JsonConvert.DeserializeObject<List<Project>>(data);
+                List<Project> projects = JsonConvert.DeserializeObject<List<Project>>(data)!;
+                _logger.LogInformation("Вывод списка проектов");
                 return View(projects);
             }
+            _logger.LogError("Ошибка при выводе списка проектов");
             return View("Error");
         }
 
@@ -42,10 +43,12 @@ namespace CorporatePortal.Controllers
 			if (response.IsSuccessStatusCode)
 			{
 				string data = await response.Content.ReadAsStringAsync();
-				List<Entry> entries = JsonConvert.DeserializeObject<List<Entry>>(data);
-				return View(entries);
+				List<Entry> entries = JsonConvert.DeserializeObject<List<Entry>>(data)!;
+                _logger.LogInformation("Вывод списка проходок");
+                return View(entries);
 			}
-			return View("Error");
+            _logger.LogError("Ошибка при выводе списка проходок");
+            return View("Error");
 		}
 
         public async Task <IActionResult> TaskAccounting()
@@ -54,9 +57,11 @@ namespace CorporatePortal.Controllers
 			if (response.IsSuccessStatusCode)
 			{
 				string data = await response.Content.ReadAsStringAsync();
-				List<Models.Task> tasks = JsonConvert.DeserializeObject<List<Models.Task>>(data);
-				return View(tasks);
+				List<Models.Task> tasks = JsonConvert.DeserializeObject<List<Models.Task>>(data)!;
+                _logger.LogInformation("Вывод списка задач");
+                return View(tasks);
 			}
+            _logger.LogError("Ошибка при выводе списка задач");
 			return View("Error");
 		}
 

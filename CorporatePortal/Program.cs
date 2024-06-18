@@ -3,6 +3,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddHttpClient("MyClient", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5125/api/");
+    client.Timeout = TimeSpan.FromSeconds(5);
+});
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

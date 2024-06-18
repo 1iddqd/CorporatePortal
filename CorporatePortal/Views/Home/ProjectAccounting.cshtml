@@ -29,7 +29,7 @@
 					<th>Номер проекта</th>
 					<th>Название</th>
 					<th>Код</th>
-					<th>Активна?</th>
+					<th>Активен?</th>
 				</tr>
 				@foreach (var item in Model)
 				{
@@ -42,7 +42,7 @@
 				}
 			</table>
 			<div class="button-container">
-				<button class="btn add-btn">Добавление</button>
+				<a class="btn add-btn" asp-area="" asp-controller="Project" asp-action="Index">Добавление</a>
 				<button class="btn edit-btn">Редактирование</button>
 				<button class="btn delete-btn">Удаление</button>
 			</div>
