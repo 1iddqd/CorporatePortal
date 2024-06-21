@@ -6,10 +6,18 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>CreateProject</title>
+    <link rel="stylesheet" href="~/css/site2.css" />
 </head>
 <body>
+    <video autoplay muted loop id="bgVideo">
+        <source src="/photos/main3.mp4" type="video/mp4" />
+        Your browser does not support HTML5 video.
+    </video>
+    <div class="cross-icon-container">
+        <a href="@Url.Action("Back")" class="close-button">&times;</a>
+    </div>
 
-<h4>Project</h4>
+    <h4 class="page-title">Project</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -37,9 +45,7 @@
     </div>
 </div>  
 
-<div>
-    <a asp-action="Back">Назад</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -48,7 +48,7 @@ html {
 /* Изменить для врот-ендера */
 .table {
     color: black;
-    background-color: aquamarine;
+    background-color: black;
     border-radius: 5px;
     padding: 10px;
 }
@@ -102,7 +102,7 @@ html {
     }
 
     .social img {
-        max-width: 24px;
+        max-width: 20px;
     }
 
 /* Медиа-запросы для адаптивного дизайна */
@@ -190,10 +190,6 @@ main {
 }
 
 .button-container {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    margin-left: 150px;
     margin-top: 20px;
 }
 
@@ -207,8 +203,10 @@ main {
 
 .add-btn {
     border-radius: 8px;
-    background-color: #00bfa5; /* Зеленый */
+    background-color: white; 
     color: black;
+    position: static;
+    display: inline;
 }
 
     .add-btn:hover {
@@ -217,22 +215,22 @@ main {
 
 .edit-btn {
     border-radius: 8px;
-    background-color: #00bfa5; /* Синий */
+    background-color: white;
     color: black;
 }
 
     .edit-btn:hover {
-        background-color: #45a049; /* Зеленый */
+        background-color: white;
     }
 
 .delete-btn {
     border-radius: 8px;
-    background-color: #00bfa5; /* Красный */
+    background-color: white; 
     color: black;
 }
 
     .delete-btn:hover {
-        background-color: #45a049; /* Зеленый */
+        background-color: white; 
     }
 
 table {
@@ -241,7 +239,7 @@ table {
     margin: 0 auto;
     font-size: 18px;
     min-width: 400px;
-    background-color: #00bfa5;
+    background-color: black;
 }
 
 thead tr {
@@ -255,9 +253,9 @@ th,
 td {
     padding: 12px 15px;
     color: white;
-    background-color: #00bfa5;
+    background-color: black;
 }
 
 tbody tr {
-    border-bottom: 1px solid #00bfa5;
+    border-bottom: 1px solid white;
 }
