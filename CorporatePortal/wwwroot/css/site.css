@@ -1,17 +1,21 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-}
-
-body {
+body,
+html {
     font-family: Arial, sans-serif;
     color: white;
     display: flex;
     justify-content: center;
-    background-color: #00bfa5;
     padding: 10px;
+}
+
+#bgVideo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 150%;
+    width: 150%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
 }
 
 .container {
@@ -28,7 +32,6 @@ body {
 .logo {
     display: flex;
     flex-direction: column;
-    
     margin-bottom: 250px;
 }
 
@@ -45,7 +48,7 @@ body {
 /* Изменить для врот-ендера */
 .table {
     color: black;
-    background-color: aquamarine;
+    background-color: black;
     border-radius: 5px;
     padding: 10px;
 }
@@ -99,7 +102,7 @@ body {
     }
 
     .social img {
-        max-width: 24px;
+        max-width: 20px;
     }
 
 /* Медиа-запросы для адаптивного дизайна */
@@ -139,15 +142,7 @@ body {
     }
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-
-}
-
 header {
-  
     color: white;
     padding: 10px 0;
 }
@@ -159,7 +154,6 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-
 }
 
 .logo a {
@@ -170,18 +164,15 @@ header {
 }
 
 .nav-links {
-    
-    position:absolute;
-   
+    position: absolute;
     padding-left: 400px;
     display: flex;
     gap: 30px;
-    
 }
 
-.nav-links li {
-    display: inline;
-}
+    .nav-links li {
+        display: inline;
+    }
 
     .nav-links a {
         text-decoration: none;
@@ -190,21 +181,16 @@ header {
         transition: color 0.3s;
     }
 
-    .nav-links a:hover {
-        color: #000; /* Tomato color for hover effect */
-    }
+        .nav-links a:hover {
+            color: #000; /* Tomato color for hover effect */
+        }
 
 main {
     padding: 20px;
 }
 
 .button-container {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    margin-left: 150px;
-    margin-top: 20px
-
+    margin-top: 20px;
 }
 
 .btn {
@@ -217,8 +203,10 @@ main {
 
 .add-btn {
     border-radius: 8px;
-    background-color: #00bfa5; /* Зеленый */
+    background-color: white; 
     color: black;
+    position: static;
+    display: inline;
 }
 
     .add-btn:hover {
@@ -227,25 +215,23 @@ main {
 
 .edit-btn {
     border-radius: 8px;
-    background-color: #00bfa5; /* Синий */
+    background-color: white;
     color: black;
 }
 
     .edit-btn:hover {
-        background-color: #45a049; /* Зеленый */
+        background-color: white;
     }
 
 .delete-btn {
     border-radius: 8px;
-    background-color: #00bfa5; /* Красный */
+    background-color: white; 
     color: black;
 }
 
     .delete-btn:hover {
-        background-color: #45a049; /* Зеленый */
+        background-color: white; 
     }
-
-
 
 table {
     width: 80%;
@@ -253,8 +239,7 @@ table {
     margin: 0 auto;
     font-size: 18px;
     min-width: 400px;
- 
-    background-color: #00bfa5;
+    background-color: black;
 }
 
 thead tr {
@@ -264,15 +249,13 @@ thead tr {
     font-weight: bold;
 }
 
-th, td {
+th,
+td {
     padding: 12px 15px;
     color: white;
-    background-color: #00bfa5;
+    background-color: black;
 }
 
 tbody tr {
-    border-bottom: 1px solid #00bfa5;
+    border-bottom: 1px solid white;
 }
-
-
-
