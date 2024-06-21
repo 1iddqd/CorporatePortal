@@ -18,7 +18,7 @@ namespace CorporatePortal.Controllers
             _httpClient = httpClientFactory.CreateClient("MyClient");
         }
 
-		public async Task<IActionResult> CreateTask()
+		public IActionResult CreateTask()
 		{
             return View();
         }
@@ -31,11 +31,27 @@ namespace CorporatePortal.Controllers
 		[HttpPost]
 		public async Task<IActionResult> CreateTask(CorporatePortal.Models.Task task)
 		{
-            var json = JsonConvert.SerializeObject(task);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await _httpClient.PostAsync("Tasks", content);
 
-            if (response.IsSuccessStatusCode)
+            if(task.ProjectId <= 0)
+            {
+                return View();
+            }
+			else
+			{
+				var project = new Project()
+				{
+					Id = task.ProjectId,
+					Name = "1",
+					Code = "1",
+					IsActive = true,
+				};
+				task.Project = project;
+			}
+			var json = JsonConvert.SerializeObject(task);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage responseTask = await _httpClient.PostAsync("Tasks", content);
+
+            if (responseTask.IsSuccessStatusCode)
             {
                 return RedirectToAction("TaskAccounting", "Home");
             }
@@ -44,5 +60,75 @@ namespace CorporatePortal.Controllers
                 return View("Error");
             }
 		}
+		public async Task<IActionResult> EditTask(int id)
+		{
+			var response = await _httpClient.GetAsync($"Tasks/{id}");
+			if (response.IsSuccessStatusCode)
+			{
+				string data = await response.Content.ReadAsStringAsync();
+				var task = JsonConvert.DeserializeObject<Models.Task>(data);
+				return View(task);
+			}
+			return View("Error");
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> EditTask(Models.Task task)
+		{
+			if (task.ProjectId <= 0)
+			{
+				return View();
+			}
+			else
+			{
+				var project = new Project()
+				{
+					Id = task.ProjectId,
+					Name = "1",
+					Code = "1",
+					IsActive = true,
+				};
+				task.Project = project;
+			}
+
+			var json = JsonConvert.SerializeObject(task);
+			var content = new StringContent(json, Encoding.UTF8, "application/json");
+			HttpResponseMessage response = await _httpClient.PutAsync($"Tasks/{task.Id}", content);
+
+			if (response.IsSuccessStatusCode)
+			{
+				return RedirectToAction("TaskAccounting", "Home");
+			}
+			else
+			{
+				return View("Error");
+			}
+		}
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteTask(int id)
+        {
+            var response = await _httpClient.GetAsync($"Tasks/{id}");
+            if (response.IsSuccessStatusCode)
+            {
+                string data = await response.Content.ReadAsStringAsync();
+                var project = JsonConvert.DeserializeObject<Models.Task>(data);
+                return View(project);
+            }
+            return View("Error");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteTaskConfirmed(int id)
+        {
+            var response = await _httpClient.DeleteAsync($"Tasks/{id}");
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("TaskAccounting", "Home");
+            }
+
+            return View("Error");
+
+        }
     }
 }

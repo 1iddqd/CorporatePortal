@@ -30,6 +30,8 @@
 					<th>Название</th>
 					<th>Номер проекта</th>
 					<th>Активна?</th>
+					<th> </th>
+					<th> </th>
 				</tr>
 				@foreach (var item in Model)
 				{
@@ -37,7 +39,16 @@
 						<td>@item.Id</td>
 						<td>@item.Name</td>
 						<td>@item.ProjectId</td>
-						<td>@item.IsActive</td>
+						@if (@item.IsActive)
+						{
+							<td>Да</td>
+						}
+						else
+						{
+							<td>Нет</td>
+						}
+						<td> <a asp-controller="Task" asp-action="EditTask" asp-route-id="@item.Id">Редактировать</a> </td>
+						<td> <a asp-controller="Task" asp-action="DeleteTask" asp-route-id="@item.Id">Удалить</a> </td>
 					</tr>
 				}
 			</table>
