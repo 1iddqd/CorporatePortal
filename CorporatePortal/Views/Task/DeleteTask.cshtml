@@ -10,12 +10,25 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>DeleteTask</title>
+    <link rel="stylesheet" href="~/css/site2.css" />
+
 </head>
 <body>
-
+    <video autoplay muted loop id="bgVideo">
+        <source src="/photos/main3.mp4" type="video/mp4" />
+        Your browser does not support HTML5 video.
+    </video>
+    
+    <div class="container">
+        <div class="cross-icon-container">
+            <a href="@Url.Action("Back")" class="close-button">&times;</a>
+        </div>
+        <h4>Task</h4>
 <h3>Are you sure you want to delete this?</h3>
+    
+
 <div>
-    <h4>Task</h4>
+  
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -46,9 +59,10 @@
 
         <form asp-action="DeleteTaskConfirmed" method="post">
             @Html.HiddenFor(model => model.Id)
-        <input type="submit" value="Удалить" class="btn btn-danger" /> |
-            <a asp-action="Back">Назад</a>
-    </form>
+                <input type="submit" value="Удалить" class="btn btn-primary" />
+
+            </form>
+</div>
 </div>
 </body>
 </html>

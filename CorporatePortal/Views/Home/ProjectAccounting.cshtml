@@ -51,10 +51,19 @@
 						{
 							<td>Нет</td>
 						}
-						<td> <a asp-controller="Project" asp-action="EditProject" asp-route-id="@item.Id">Редактировать</a> </td>
-						<td> <a asp-controller="Project" asp-action="DeleteProject" asp-route-id="@item.Id">Удалить</a> </td>
+						<td>
+							<form asp-controller="Project" asp-action="EditProject" method="get">
+								<input type="hidden" name="id" value="@item.Id" />
+								<button type="submit">Редактировать</button>
+							</form>
+                        </td>
+                        <td> <a asp-controller="Project" asp-action="DeleteProject" asp-route-id="@item.Id">Удалить</a> </td>
+					
 					</tr>
+					
+
 				}
+		
 			</table>
 			<div class="button-container">
 				<a class="btn add-btn" asp-controller="Project" asp-action="CreateProject">Добавление</a>

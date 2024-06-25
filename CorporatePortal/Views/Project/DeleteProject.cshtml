@@ -10,24 +10,25 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>DeleteProject</title>
-    <link rel="stylesheet" href="~/css/site4.css" />
+    <link rel="stylesheet" href="~/css/site2.css" />
 </head>
 <body>
     <video autoplay muted loop id="bgVideo">
         <source src="/photos/main3.mp4" type="video/mp4" />
         Your browser does not support HTML5 video.
+
     </video>
+    <div class="container">
     <div class="cross-icon-container">
         <a href="@Url.Action("Back")" class="close-button">&times;</a>
     </div>
 
 <h3>Вы уверены?</h3>
 <div>
-        <h4 class="page-title">Project</h4>
  
-        <div class="container">
+        
             <div class="row">
-                <div class="col-md-4">
+               
                 <dt class = "col-sm-2">
                     @Html.DisplayNameFor(model => model.Id)
                 </dt>
@@ -56,14 +57,14 @@
 
     </div>
     </div>
-    </div>
+ 
         
         
 
     <form asp-action="DeleteProject" method="post">
             @Html.HiddenFor(model => model.Id)
-            <input type="submit" value="Удалить" class="btn btn-danger" asp-action="DeleteProjectConfirmed" /> |
-        <a asp-action="Back">Назад</a>
+            <input type="submit" value="Удалить" class="btn btn-primary" asp-action="DeleteProjectConfirmed" />
+        
     </form>
 </div>
 </body>
