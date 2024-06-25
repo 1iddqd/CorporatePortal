@@ -54,10 +54,15 @@
 						<td>
 							<form asp-controller="Project" asp-action="EditProject" method="get">
 								<input type="hidden" name="id" value="@item.Id" />
-								<button type="submit">Редактировать</button>
+								<button class="btn add-btn" type="submit">Редактировать</button>
 							</form>
                         </td>
-                        <td> <a asp-controller="Project" asp-action="DeleteProject" asp-route-id="@item.Id">Удалить</a> </td>
+						<td>
+							<form asp-controller="Project" asp-action="DeleteProject" method="get">
+								<input type="hidden" name="id" value="@item.Id" />
+								<button class="btn add-btn" type="submit">X</button>
+							</form>
+						</td>
 					
 					</tr>
 					
@@ -72,7 +77,7 @@
 		</main>
 		<footer class="footer">
 			<div class="social">
-				<a href="#"><img src="/photos/youtube.png" alt="yt" /></a>
+				<a href="https://www.youtube.com/norbittv"><img src="/photos/youtube.png" alt="yt" /></a>
 				<a href="#"><img src="/photos/vk1.png" alt="" /></a>
 				<a href="#"><img src="/photos/telegram.png" alt="tg" /></a>
 			</div>
