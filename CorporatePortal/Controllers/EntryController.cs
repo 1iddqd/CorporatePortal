@@ -30,12 +30,20 @@ namespace CorporatePortal.Controllers
             }
             else
             {
+                var project = new Models.Project()
+                {
+                    Id = 1,
+                    Code = "1",
+                    IsActive = true, 
+                    Name = "1",
+                };
                 var task = new Models.Task()
                 {
                     Id = entry.TaskId,
                     Name = "1",
                     IsActive = true,
                     ProjectId = 1,
+                    Project = project,
                 };
                 entry.Task = task;
             }

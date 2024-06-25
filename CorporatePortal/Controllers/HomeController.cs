@@ -1,4 +1,3 @@
-using CorporatePortal.Converters;
 using CorporatePortal.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -18,11 +17,6 @@ namespace CorporatePortal.Controllers
         {
             _logger = logger;
             _httpClient = httpClientFactory.CreateClient("MyClient");
-
-            settings = new JsonSerializerSettings
-            {
-                Converters = { new DateOnlyConverter("dd.MM.yyyy") }
-            };
         }
 
         public IActionResult Index()
