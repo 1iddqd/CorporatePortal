@@ -1,6 +1,7 @@
 using CorporatePortal.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using NuGet.Configuration;
 using System.Diagnostics;
 using System.Net.Http;
 
@@ -8,9 +9,9 @@ namespace CorporatePortal.Controllers
 {
     public class HomeController : Controller
     {
-
         private readonly ILogger<HomeController> _logger;
         private readonly HttpClient _httpClient;
+        private readonly JsonSerializerSettings settings;
 
         public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory)
         {
@@ -43,7 +44,7 @@ namespace CorporatePortal.Controllers
 			if (response.IsSuccessStatusCode)
 			{
 				string data = await response.Content.ReadAsStringAsync();
-				List<Entry> entries = JsonConvert.DeserializeObject<List<Entry>>(data)!;
+				List<Entry> entries = JsonConvert.DeserializeObject<List<Entry>>(data, settings)!;
                 _logger.LogInformation("Вывод списка проходок");
                 return View(entries);
 			}
