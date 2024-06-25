@@ -13,7 +13,6 @@ namespace CorporatePortal.Models
         public string? Description { get; set; }
 
         public int TaskId { get; set; }
-        [JsonIgnore]
         public virtual Task Task { get; set; } = null!;
     }
 }
