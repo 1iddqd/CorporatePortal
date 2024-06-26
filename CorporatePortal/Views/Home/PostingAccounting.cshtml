@@ -52,7 +52,7 @@
 							<td>
 								<form asp-controller="Entry" asp-action="EditEntry" method="get">
 									<input type="hidden" name="id" value="@item.Id" />
-									<button type="submit">Редактировать</button>
+									<button type="submit" class="btn add-btn">Редактировать</button>
 								</form>
 							</td>
 						</tr>
@@ -69,13 +69,13 @@
 			<div class="button-container">
 				<form asp-controller="Home" asp-action="FilterEntries" method="post">
 					<input class="form-control" type="date" name="filterDate" />
-					<button type="submit" class="btn btn-dark">Фильтр по дате</button>
+					<button type="submit" class="btn add-btn">Фильтр по дате</button>
 				</form>
 			</div>
 			<div class="button-container">
 				<form asp-controller="Home" asp-action="FilterEntriesByMonth" method="post">
 					<input class="form-control" type="number" name="month" placeholder="Месяц" />
-					<button type="submit" class="btn btn-dark">Фильтр по месяцу</button>
+					<button type="submit" class="btn add-btn">Фильтр по месяцу</button>
 				</form>
 			</div>
 		</main>
@@ -83,8 +83,8 @@
 		<footer class="footer">
 			<div class="social">
 				<a href="https://www.youtube.com/norbittv"><img src="/photos/youtube.png" alt="yt" /></a>
-				<a href="#"><img src="/photos/vk1.png" alt="" /></a>
-				<a href="#"><img src="/photos/telegram.png" alt="tg" /></a>
+				<a href="https://vk.com/norbit_ru"><img src="/photos/vk1.png" alt="" /></a>
+				<a href="https://t.me/norbit_ru"><img src="/photos/telegram.png" alt="tg" /></a>
 			</div>
 			<p>&copy; 2024. Все права защищены.</p>
 
