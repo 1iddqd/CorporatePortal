@@ -11,7 +11,6 @@ namespace CorporatePortal.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly HttpClient _httpClient;
-        private readonly JsonSerializerSettings settings;
 
         public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory)
         {
@@ -44,7 +43,7 @@ namespace CorporatePortal.Controllers
 			if (response.IsSuccessStatusCode)
 			{
 				string data = await response.Content.ReadAsStringAsync();
-				List<Entry> entries = JsonConvert.DeserializeObject<List<Entry>>(data, settings)!;
+				List<Entry> entries = JsonConvert.DeserializeObject<List<Entry>>(data)!;
                 _logger.LogInformation("Вывод списка проходок");
                 return View(entries);
 			}
@@ -66,7 +65,49 @@ namespace CorporatePortal.Controllers
 			return View("Error");
 		}
 
-        public IActionResult Privacy()
+		[HttpPost]
+		public async Task<IActionResult> FilterEntries(string filterDate)
+		{
+			var response = await _httpClient.GetAsync("Entries");
+			if (response.IsSuccessStatusCode)
+			{
+				string data = await response.Content.ReadAsStringAsync();
+				List<Entry> entries = JsonConvert.DeserializeObject<List<Entry>>(data);
+
+				var filteredEntries = entries.Where(entry => entry.Date == filterDate).ToList();
+
+				_logger.LogInformation("Отфильтрованный список записей");
+				return View("PostingAccounting", filteredEntries);
+			}
+			else
+			{
+				_logger.LogError("Ошибка при получении данных");
+				return View("Error");
+			}
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> FilterEntriesByMonth(int month)
+		{
+			var response = await _httpClient.GetAsync("Entries");
+			if (response.IsSuccessStatusCode)
+			{
+				string data = await response.Content.ReadAsStringAsync();
+				List<Entry> entries = JsonConvert.DeserializeObject<List<Entry>>(data);
+
+				var filteredEntries = entries.Where(entry => DateTime.TryParse(entry.Date, out DateTime entryDate) && entryDate.Month == month).ToList();
+
+				_logger.LogInformation("Отфильтрованный список записей по месяцу");
+				return View("PostingAccounting", filteredEntries);
+			}
+			else
+			{
+				_logger.LogError("Ошибка при получении данных");
+				return View("Error");
+			}
+		}
+
+		public IActionResult Privacy()
         {
             return View();
         }
