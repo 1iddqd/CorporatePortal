@@ -36,6 +36,7 @@
 						<th>Часы</th>
 						<th>Описание</th>
 						<th>Номер задачи</th>
+						<th> </th>
 					</tr>
 				</thead>
 				<tbody>
@@ -48,6 +49,12 @@
 							<td>@item.Hours</td>
 							<td>@item.Description</td>
 							<td>@item.TaskId</td>
+							<td>
+								<form asp-controller="Entry" asp-action="EditEntry" method="get">
+									<input type="hidden" name="id" value="@item.Id" />
+									<button type="submit">Редактировать</button>
+								</form>
+							</td>
 						</tr>
 						}
 					</tr>
