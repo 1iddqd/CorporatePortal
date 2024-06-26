@@ -10,10 +10,20 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>CreateEntry</title>
+   
+    <script src="~/js/site.js"></script>
 </head>
 <body>
-
-<h4>Entry</h4>
+    <video autoplay muted loop id="bgVideo">
+        <source src="/photos/main3.mp4" type="video/mp4" />
+        Your browser does not support HTML5 video.
+    </video>
+    <div class="container">
+        
+        <div class="cross-icon-container">
+            <a href="@Url.Action("Back")" class="close-button">&times;</a>
+        </div>
+<h4>Создание учёта проводок</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -44,13 +54,17 @@
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Back">Назад</a>
 </div>
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
 }
+ 
 </body>
+
+
+
 </html>
