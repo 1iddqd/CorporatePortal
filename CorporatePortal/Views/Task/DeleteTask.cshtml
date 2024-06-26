@@ -24,38 +24,28 @@
             <a href="@Url.Action("Back")" class="close-button">&times;</a>
         </div>
         <h4>Удаление задачи</h4>
-<h3>Вы точно хотите удалить данную задачу?</h3>
     
 
-<div>
-  
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProjectId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProjectId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsActive)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsActive)
-        </dd>
-    </dl>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <dl class="row">
+                <dt class="col-sm-4">ID:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Id)</dd>
+
+                <dt class="col-sm-4">Имя:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Name)</dd>
+
+                <dt class="col-sm-4">Идентификатор проекта:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.ProjectId)</dd>
+
+                <dt class="col-sm-4">Активна:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.IsActive)</dd>
+            </dl>
+            @Html.HiddenFor(model => model.Id)
+        </div>
+    </div>
+</div>
 
         <form asp-action="DeleteTaskConfirmed" method="post">
             @Html.HiddenFor(model => model.Id)
@@ -64,5 +54,22 @@
             </form>
 </div>
 </div>
+    <style>
+        dl.row dt {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        dl.row dd {
+            margin-bottom: 10px;
+        }
+
+        dl.row dt, dl.row dd {
+            padding: 8px;
+            background-color: #ffffff;
+            border-radius: 4px;
+            margin: 2px 0;
+        }
+    </style>
 </body>
 </html>
