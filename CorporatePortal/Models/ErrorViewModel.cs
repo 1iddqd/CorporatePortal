@@ -6,5 +6,7 @@ namespace CorporatePortal.Models
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
+        public string? RequestContent { get; set; }
+
     }
 }
