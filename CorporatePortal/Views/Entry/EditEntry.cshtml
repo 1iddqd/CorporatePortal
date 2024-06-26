@@ -10,32 +10,41 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>EditEntry</title>
+    <link rel="stylesheet" href="~/css/site2.css" />
 </head>
 <body>
+    <video autoplay muted loop id="bgVideo">
+        <source src="/photos/main3.mp4" type="video/mp4" />
+        Your browser does not support HTML5 video.
+    </video>
 
-<h4>Entry</h4>
+    <div class="container">
+        <div class="cross-icon-container">
+            <a href="@Url.Action("Back")" class="close-button">&times;</a>
+        </div>
+<h4>Редактирование учёта проводок</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="EditEntry" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
+                <label asp-for="Id" class="control-label">Идентификатор</label>
                     <input asp-for="Id" class="form-control" readonly />
                 <span asp-validation-for="Id" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
+                <label asp-for="Date" class="control-label">Дата</label>
                 <input asp-for="Date" class="form-control" type="date"/>
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Hours" class="control-label"></label>
+                <label asp-for="Hours" class="control-label">Часы</label>
                 <input asp-for="Hours" class="form-control" />
                 <span asp-validation-for="Hours" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+                <label asp-for="Description" class="control-label">Описание</label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
@@ -46,10 +55,8 @@
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Back">Назад</a>
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
