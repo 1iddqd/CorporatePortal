@@ -65,7 +65,18 @@
 			</table>
 			<div class="button-container">
 				<a class="btn add-btn" asp-controller="Entry" asp-action="CreateEntry">Добавление</a>
-				
+			</div>
+			<div class="button-container">
+				<form asp-controller="Home" asp-action="FilterEntries" method="post">
+					<input class="form-control" type="date" name="filterDate" />
+					<button type="submit" class="btn btn-dark">Фильтр по дате</button>
+				</form>
+			</div>
+			<div class="button-container">
+				<form asp-controller="Home" asp-action="FilterEntriesByMonth" method="post">
+					<input class="form-control" type="number" name="month" placeholder="Месяц" />
+					<button type="submit" class="btn btn-dark">Фильтр по месяцу</button>
+				</form>
 			</div>
 		</main>
 
